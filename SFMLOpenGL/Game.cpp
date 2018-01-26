@@ -40,7 +40,7 @@ void Game::initialize()
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(100, 2, 1.0, 999);
+	gluPerspective(42, window.getSize().x / window.getSize().y, 0.5, 20.0);
 	glMatrixMode(GL_MODELVIEW);
 
 	// glNewList(index, GL_COMPILE);
@@ -69,25 +69,25 @@ void Game::initialize()
 		glColor3f(1.0f, 0.0f, 0.0f);
 		glVertex3f(1.0f, 1.0f, -15.0f);
 		glVertex3f(1.0f, 1.0f, -5.0f);
-		glVertex3f(-1.0f, -1.0f, -5.0f);
+		glVertex3f(1.0f, -1.0f, -5.0f);
 		glVertex3f(1.0f, -1.0f, -15.0f);
 
 		// Top
-		glColor3f(0.0f, 0.0f, 2.0f);
+		glColor3f(0.0f, 1.0f, 1.0f);
 		glVertex3f(-1.0f, 1.0f, -5.0f);
 		glVertex3f(1.0f, 1.0f, -5.0f);
 		glVertex3f(1.0f, 1.0f, -15.0f);
 		glVertex3f(-1.0f, 1.0f, -15.0f);
 
 		// Left
-		glColor3f(0.0f, 2.0f, 0.0f);
+		glColor3f(1.0f, 1.0f, 0.0f);
 		glVertex3f(-1.0f, 1.0f, -5.0f);
 		glVertex3f(-1.0f, 1.0f, -15.0f);
 		glVertex3f(-1.0f, -1.0f, -15.0f);
 		glVertex3f(-1.0f, 1.0f, -15.0f);
 
 		// Bottom
-		glColor3f(2.0f, 0.0f, 0.0f);
+		glColor3f(1.0f, 0.0f, 1.0f);
 		glVertex3f(-1.0f, -1.0f, -5.0f);
 		glVertex3f(1.0f, -1.0f, -5.0f);
 		glVertex3f(1.0f, -1.0f, -15.0f);
@@ -116,7 +116,7 @@ void Game::update()
 
 	if (updatable)
 	{
-		rotationAngle += 1.0f;
+		rotationAngle += 0.05f;
 
 		if (rotationAngle > 360.0f)
 		{
@@ -135,7 +135,7 @@ void Game::draw()
 
 	cout << "Drawing Cube " << endl;
 	glLoadIdentity();
-	glRotatef(rotationAngle, 0, 1, 0); // Rotates the camera on Y Axis
+	glRotatef(rotationAngle, 1, 1, 1); // Rotates the camera on Y Axis
 
 	glCallList(1);
 
