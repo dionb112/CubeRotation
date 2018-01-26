@@ -40,7 +40,7 @@ void Game::initialize()
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	gluPerspective(45.0, window.getSize().x / window.getSize().y, 1.0, 500.0);
+	gluPerspective(100, 2, 1.0, 999);
 	glMatrixMode(GL_MODELVIEW);
 
 	// glNewList(index, GL_COMPILE);
@@ -57,20 +57,42 @@ void Game::initialize()
 		glVertex3f(-1.0f, -1.0f, -5.0f);
 		glVertex3f(1.0f, -1.0f, -5.0f);
 
-		//Back Face
+		// Back Face
 		glColor3f(0.0f, 1.0f, 0.0f);
 		glVertex3f(1.0f, 1.0f, -15.0f);
 		glVertex3f(-1.0f, 1.0f, -15.0f);
 		glVertex3f(-1.0f, -1.0f, -15.0f);
 		glVertex3f(1.0f, -1.0f, -15.0f);
 
-		//Complete the faces of the Cube
-		//Right Side
-		glColor3f(0.0f, 1.0f, 0.0f);
+		// Complete the faces of the Cube
+		// Right Side
+		glColor3f(1.0f, 0.0f, 0.0f);
 		glVertex3f(1.0f, 1.0f, -15.0f);
 		glVertex3f(1.0f, 1.0f, -5.0f);
 		glVertex3f(-1.0f, -1.0f, -5.0f);
 		glVertex3f(1.0f, -1.0f, -15.0f);
+
+		// Top
+		glColor3f(0.0f, 0.0f, 2.0f);
+		glVertex3f(-1.0f, 1.0f, -5.0f);
+		glVertex3f(1.0f, 1.0f, -5.0f);
+		glVertex3f(1.0f, 1.0f, -15.0f);
+		glVertex3f(-1.0f, 1.0f, -15.0f);
+
+		// Left
+		glColor3f(0.0f, 2.0f, 0.0f);
+		glVertex3f(-1.0f, 1.0f, -5.0f);
+		glVertex3f(-1.0f, 1.0f, -15.0f);
+		glVertex3f(-1.0f, -1.0f, -15.0f);
+		glVertex3f(-1.0f, 1.0f, -15.0f);
+
+		// Bottom
+		glColor3f(2.0f, 0.0f, 0.0f);
+		glVertex3f(-1.0f, -1.0f, -5.0f);
+		glVertex3f(1.0f, -1.0f, -5.0f);
+		glVertex3f(1.0f, -1.0f, -15.0f);
+		glVertex3f(-1.0f, -1.0f, -15.0f);
+
 	}
 	glEnd();
 	glEndList();
@@ -94,7 +116,7 @@ void Game::update()
 
 	if (updatable)
 	{
-		rotationAngle += 0.005f;
+		rotationAngle += 1.0f;
 
 		if (rotationAngle > 360.0f)
 		{
